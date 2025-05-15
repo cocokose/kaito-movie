@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>KAITO MOVIE</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ページ冒頭で一瞬出す大タイトルのスタイル */
+    #overlayTitle {
+      font-size: 200px;
+      color: #00bfff;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1.0;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div id="intro">
+    <button id="startBtn" style="background: none; border: none;">
+      <img id="clapperImg" src="16774.png" alt="カチンコ" style="width: 800px; cursor: pointer;">
+    </button>
+    <div id="recMark">● REC</div>
+  </div>
+
+  <div id="overlayTitle" class="hidden">KAITO MOVIE</div>
+
+  <div id="mainContent" class="hidden">
+    <div class="contentOverlay">
+      <p>福井の高校生が<br>県の魅力をいっぱいに詰め込んだ<br>オリジナル映画を撮影します</p>
+    </div>
+
+    <div class="contentOverlay">
+      <p>あらすじ</p><br>
+      <h2>そんな高校生たちの葛藤を描いた<br>現役高校生が作る自主制作映画</h2>
+    </div>
+
+    <div class="contentOverlay">
+      <img src="kyousan.png" alt="協賛画像" style="max-width: 100%; height: auto;">
+    </div>
+  </div>
+
+  <audio id="clapSound" src="2.mp3"></audio>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const startBtn = document.getElementById("startBtn");
+      const clapperImg = document.getElementById("clapperImg");
+      const rec = document.getElementById("recMark");
+      const intro = document.getElementById("intro");
+      const content = document.getElementById("mainContent");
+      const clapSound = document.getElementById("clapSound");
+      const overlayTitle = document.getElementById("overlayTitle");
+
+      startBtn.addEventListener("click", () => {
+        clapperImg.src = "16775.png";
+        clapSound.play();
+        startBtn.style.display = "none";
+        rec.style.display = "block";
+
+        setTimeout(() => {
+          document.body.style.backgroundColor = "#FFE4C4";
+          document.body.style.color = "black";
+          overlayTitle.classList.remove("hidden");
+        }, 2000);
+
+        setTimeout(() => {
+          rec.style.display = "none";
+          intro.style.display = "none";
+          content.classList.remove("hidden");
+          content.style.opacity = 1;
+        }, 2000);
+      });
+    });
+
+    // スクロールでフェードイン＆フェードアウト
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in");
+          entry.target.classList.remove("fade-out");
+        } else {
+          entry.target.classList.remove("fade-in");
+          entry.target.classList.add("fade-out");
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll(".contentOverlay").forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
