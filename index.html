@@ -2,31 +2,14 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KAITO MOVIE</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* ページ冒頭で一瞬出す大タイトルのスタイル */
-    #overlayTitle {
-      font-size: 200px;
-      color: #00bfff;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 1.0;
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-    }
-  </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
   <div id="intro">
     <button id="startBtn" style="background: none; border: none;">
-      <img id="clapperImg" src="16774.png" alt="カチンコ" style="width: 800px; cursor: pointer;">
+      <img id="clapperImg" src="16774.png" alt="カチンコ">
     </button>
     <div id="recMark">● REC</div>
   </div>
@@ -44,7 +27,7 @@
     </div>
 
     <div class="contentOverlay">
-      <img src="kyousan.png" alt="協賛画像" style="max-width: 100%; height: auto;">
+      <img src="kyousan.png" alt="協賛画像">
     </div>
   </div>
 
@@ -81,7 +64,6 @@
       });
     });
 
-    // スクロールでフェードイン＆フェードアウト
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

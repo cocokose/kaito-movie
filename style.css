@@ -17,22 +17,24 @@ body {
   align-items: center;
 }
 
+/* カチンコ画像 */
 #startBtn img {
-  width: 80vw; /* 画面の幅に応じて大きく表示 */
-  max-width: 800px; /* 最大サイズの制限（必要に応じて調整） */
+  width: 80vw;
+  max-width: 800px;
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
   display: block;
-  margin: 300px auto auto; /* ← ここが変更点（上に50pxの余白） */
+  margin-top: 100px;
 }
 
-
+/* ホバー時 */
 #startBtn img:hover {
   content: url('16775.png');
   transform: scale(1.05);
 }
 
+/* RECマーク */
 #recMark {
   position: fixed;
   top: 50%;
@@ -40,13 +42,12 @@ body {
   transform: translate(-50%, -50%);
   color: red;
   font-weight: bold;
-  font-size: 12vw; /* 画面幅に応じて大きく */
+  font-size: 12vw;
   display: none;
   animation: blink 1s infinite;
   z-index: 9999;
   text-shadow: 0 0 20px red;
   opacity: 1;
-  transition: opacity 1s ease;
   user-select: none;
   pointer-events: none;
 }
@@ -56,26 +57,24 @@ body {
   25%, 75% { opacity: 0; }
 }
 
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
+/* 大タイトル */
 #overlayTitle {
-  font-size: 120px;
+  font-size: 10vw;
   color: #00bfff;
   position: fixed;
-  top: 50%;
+  top: 15vh;
   left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
+  transform: translateX(-50%);
+  opacity: 1;
   z-index: 0;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
+  width: 90vw;
+  text-align: center;
 }
 
+/* メインコンテンツ */
 #mainContent {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -88,9 +87,9 @@ body {
   display: none;
 }
 
-/* フェードイン・アウト対象 */
+/* コンテンツカード */
 .contentOverlay {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   padding: 40px;
   margin: 100px auto;
   max-width: 800px;
@@ -99,91 +98,62 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
-  position: relative;
-  z-index: 10;
   color: black;
 }
 
-/* 表示時のアニメーション */
+/* 表示時 */
 .contentOverlay.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* スクロールアウト時のフェードアウト */
+/* 非表示時 */
 .contentOverlay.fade-out {
   opacity: 0;
   transform: translateY(40px);
 }
 
-/* テキストサイズ調整 */
+/* テキスト */
 p {
   font-size: 50px;
 }
 
-h6 {
-  font-size: 50px;
+h2 {
+  font-size: 30px;
 }
 
-h7 {
-  font-size: 25px;
-  line-height: 1.1;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-#overlayTitle {
-  font-size: 10vw; /* 画面幅に応じて自動調整 */
-  color: #00bfff;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1.0;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  width: 90vw;
-  text-align: center;
-}
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+  #startBtn img {
+    width: 80vw;
+    margin-top: 60px;
+  }
 
-/* 小さい画面での調整（例: スマホ） */
-@media (max-width: 600px) {
+  #recMark {
+    font-size: 10vw;
+  }
+
   #overlayTitle {
     font-size: 12vw;
+    top: 10vh;
     width: 95vw;
-  }
-}
-
-
-/* スマホ対応（768px以下） */
-@media screen and (max-width: 768px) {
-  #overlayTitle {
-    font-size: 60px;
   }
 
   p {
-    font-size: 24px;
+    font-size: 22px;
   }
 
-  h6 {
-    font-size: 24px;
-  }
-
-  h7 {
-    font-size: 16px;
-    line-height: 1.4;
+  h2 {
+    font-size: 20px;
   }
 
   .contentOverlay {
     padding: 20px;
-    margin: 60px 20px;
-  }
-
-  #startBtn img {
-    width: 200px;
-  }
-
-  #recMark {
-    font-size: 32px;
+    margin: 60px 10px;
   }
 }
