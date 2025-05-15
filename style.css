@@ -130,9 +130,30 @@ h7 {
   line-height: 1.1;
 }
 
-tittle {
-  Width: 80vw;
+#overlayTitle {
+  font-size: 10vw; /* 画面幅に応じて自動調整 */
+  color: #00bfff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1.0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  width: 90vw;
+  text-align: center;
 }
+
+/* 小さい画面での調整（例: スマホ） */
+@media (max-width: 600px) {
+  #overlayTitle {
+    font-size: 12vw;
+    width: 95vw;
+  }
+}
+
 
 /* スマホ対応（768px以下） */
 @media screen and (max-width: 768px) {
