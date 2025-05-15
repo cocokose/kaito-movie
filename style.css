@@ -7,9 +7,6 @@ body {
   text-align: center;
   transition: background-color 1s ease;
   overflow-x: hidden;
-  width: 100vh;
-  max-width: 800px;
-  padding-left: 25%;
 }
 
 #intro {
@@ -131,6 +128,10 @@ h6 {
 h7 {
   font-size: 25px;
   line-height: 1.1;
+}
+
+tittle {
+  Width: 80vw;
 }
 
 /* スマホ対応（768px以下） */
