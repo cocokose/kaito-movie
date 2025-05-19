@@ -150,6 +150,7 @@ img {
 
   h2 {
     font-size: 20px;
+    padding-bottom: 1px;
   }
 
   .contentOverlay {
@@ -165,3 +166,47 @@ img {
   margin: 0 auto;
   border-radius: 10px;
 }
+
+.contact-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+.contact-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+}
+
+.contact-card button {
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.contact-card button:hover {
+  background-color: #009acd;
+}
+ 
