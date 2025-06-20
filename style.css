@@ -1,212 +1,117 @@
-/* 共通設定 */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: black;
-  color: white;
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:sans-serif; background:black; color:white; overflow-x:hidden; }
+
+.hidden { display:none; }
+
+/* intro */
+#intro { height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column; position:relative; }
+#startBtn img { width:60vw; max-width:400px; cursor:pointer; }
+#recMark { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:13vw; color:red; animation:blink 1s infinite;   text-shadow:
+    0 0 1px red,
+    0 0 1px red,
+    0 0 1px red,
+    0 0 30px darkred;
+font-family: sans-serif;}
+@keyframes blink { 0%,50%,100% {opacity:1;} 25%,75% {opacity:0;} }
+
+/* overlay title */
+#overlayTitle { position:fixed; top:10%; left:16%;  font-size:10vw; color:#00bfff; white-space: nowrap;}
+
+/* main content */
+.contentOverlay { opacity:0; transform:translateY(40px); transition:opacity 1s ease, transform 1s ease; margin:60px auto; max-width:800px; background:rgba(255,255,255,0.8); color:black; padding:24px; border-radius:12px;
+  font-size: 1.3rem;  /* ← ここで文字を大きくする */
+  line-height: 1.8;   /* ← 行間を広げて読みやすく */
+  text-align: center;         /* ← 中央揃えにする */
+  font-size: 1.5rem;          /* ← お好みで文字を大きく */
+  line-height: 1.8;           /* ← 行間もゆったり */
+  padding: 2rem; }
+.contentOverlay.fade-in { opacity:1; transform:translateY(0); }
+
+.responsive-img { width:100%; height:auto; display:block; }
+
+/* floating button */
+#floatingContactBtn { position:fixed; bottom:20px; left:20px; background:#00bfff; color:white; padding:12px 16px; border:none; border-radius:30px; cursor:pointer; font-size:16px; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
+
+@media(max-width:600px){
+  #startBtn img { width:80vw; }
+  #recMark { font-size:20vw; }
+  #overlayTitle { font-size:12vw; }
+}
+.contactBox {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: background-color 1s ease;
-  overflow-x: hidden;
 }
 
-#intro {
-  height: 100vh;
+.contactBox h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contactBox form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 1rem;
 }
 
-/* カチンコ画像 */
-#startBtn img {
-  width: 80vw;
-  max-width: 800px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  display: block;
-  margin-top: 100px;
-}
-
-/* ホバー時 */
-#startBtn img:hover {
-  content: url('16775.png');
-  transform: scale(1.05);
-}
-
-/* RECマーク */
-#recMark {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: red;
-  font-weight: bold;
-  font-size: 12vw;
-  display: none;
-  animation: blink 1s infinite;
-  z-index: 9999;
-  text-shadow: 0 0 20px red;
-  opacity: 1;
-  user-select: none;
-  pointer-events: none;
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-/* 大タイトル */
-#overlayTitle {
-  font-size: 10vw;
-  color: #00bfff;
-  position: fixed;
-  top: 15vh;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 1;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  width: 90vw;
-  text-align: center;
-}
-
-/* メインコンテンツ */
-#mainContent {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  padding-top: 100vh;
-  position: relative;
-  z-index: 1;
-}
-
-.hidden {
-  display: none;
-}
-
-/* コンテンツカード */
-.contentOverlay {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px;
-  margin: 100px auto;
-  max-width: 800px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-  color: black;
-}
-
-/* 表示時 */
-.contentOverlay.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 非表示時 */
-.contentOverlay.fade-out {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* テキスト */
-p {
-  font-size: 50px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* モバイル対応 */
-@media screen and (max-width: 768px) {
-  #startBtn img {
-    width: 80vw;
-    margin-top: 60px;
-  }
-
-  #recMark {
-    font-size: 10vw;
-  }
-
-  #overlayTitle {
-    font-size: 12vw;
-    top: 10vh;
-    width: 95vw;
-  }
-
-  p {
-    font-size: 22px;
-  }
-
-  h2 {
-    font-size: 20px;
-    padding-bottom: 1px;
-  }
-
-  .contentOverlay {
-    padding: 20px;
-    margin: 60px 10px;
-  }
-}
-
-.contentOverlay img {
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-
-.contact-card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 30px;
-  max-width: 600px;
-  width: 90%;
-  margin: 40px auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-
-.contact-card h2 {
-  text-align: center;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.contact-card input,
-.contact-card textarea {
-  width: 100%;
-  padding: 12px;
+.contactBox input,
+.contactBox textarea {
+  padding: 1rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin-top: 4px;
-  margin-bottom: 2px;
+  width: 100%;
   box-sizing: border-box;
 }
 
-.contact-card button {
+.contactBox button {
+  padding: 1rem;
+  font-size: 1.1rem;
   background-color: #00bfff;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.contact-card button:hover {
+.contactBox button:hover {
   background-color: #009acd;
 }
- 
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+p { font-size:92%;
+}
+h3 {color: #ff4500;
+
+}
+
+.sns-footer {
+  text-align: center;
+  padding: 40px 0;
+  background: transparent;
+  color: #000;
+  font-size: 20px;
+}
+
+.sns-link img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.sns-link img:hover {
+  transform: scale(1.2);
+}

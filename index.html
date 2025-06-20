@@ -1,234 +1,64 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>KAITO MOVIE</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-color: black;
-      color: white;
-    }
-
-    /* お問い合わせボタン */
-    #contactBtn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #00bfff;
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 9999;
-      display: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    #contactBtn:hover {
-      background-color: #009acd;
-    }
-
-    @media (max-width: 600px) {
-      #contactBtn {
-        font-size: 14px;
-        padding: 10px 14px;
-      }
-    }
-
-    #contactSection {
-   background: rgba(255, 255, 255, 0.9);
-   padding: 40px;
-   margin: 100px auto;
-   max-width: 800px;
-   width: 90%;
-   border-radius: 20px;
-   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-   color: black;
-   font-size: 16px;
-}
-
-
-
-    #contactForm input,
-    #contactForm textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-
-    #contactForm button {
-      background-color: #00bfff;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    #contactForm button:hover {
-      background-color: #009acd;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    footer {
-      height: 200px;
-      background: transparent;
-    }
-
-    .contentOverlay {
-      padding: 20px;
-    }
-
-    .fade-in {
-      opacity: 1;
-      transition: opacity 1s ease-in;
-    }
-
-    .fade-out {
-      opacity: 0;
-      transition: opacity 1s ease-out;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div id="intro">
-    <button id="startBtn" style="background: none; border: none;">
-      <img id="clapperImg" src="16774.png" alt="カチンコ" />
-    </button>
-    <div id="recMark">● REC</div>
+    <button id="startBtn"><img id="clapperImg" src="1.png" alt="カチンコ"></button>
+    <div id="recMark" class="hidden">● REC</div>
   </div>
 
-  <div id="overlayTitle" class="hidden">KAITO MOVIE</div>
+  <div id="overlayTitle" class="hidden"> KAITO MOVIE</br></br><h3>7月12日放映</h3></div>
 
   <div id="mainContent" class="hidden">
-    <div class="contentOverlay">
-      <p>福井の高校生が<br />県の魅力をいっぱいに詰め込んだ<br />オリジナル映画を撮影します</p>
-    </div>
+    <section class="contentOverlay">
+      <h2>福井の高校生が県の魅力をいっぱいに詰め込んだオリジナル映画を撮影します</h2>
+    </section>
 
-    <div class="contentOverlay">
-      <p>あらすじ</p>
-      <h2>そんな高校生たちの葛藤を描いた<br />現役高校生が作る自主制作映画</h2>
-    </div>
+    <section class="contentOverlay">
+      <h2>あらすじ</h2>
+      <p>絵を描くことが好きな女の子と絵を描くことを諦めてしまった不良生徒</br>ふたりは出会い、挫折を経験しながらも進んでいく「みち」を探す</br>現役高校生たちが抱える悩みや葛藤を描いた自主制作映画</p>
+    </section>
 
-    <div class="contentOverlay">
-      <img src="kyousan.png" alt="協賛画像" />
-    </div>
+    <section class="contentOverlay">
+      <img src="kyousan.png" alt="協賛" class="responsive-img">
+    </section>
+    <section class="contentOverlay">
+     <footer class="sns-footer">
+       <h4>SNS</h4>
+       <a href="https://www.tiktok.com/@あなたのアカウント" target="_blank" class="sns-link">
+         <img src="tiktok-icon.png" alt="TikTok" />
+       </a>
+       <a href="https://www.instagram.com/あなたのアカウント" target="_blank" class="sns-link">
+          <img src="instagram-icon.png" alt="Instagram" />
+        </a>
+       </footer>
+    </section>
+    <section id="contactSection" class="contentOverlay hidden">
+      <div class="contentOverlay contactBox">
+  <h2>お問い合わせ</h2>
+</br><h3>TEL ○○○-○○○-○○○</h3>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="お名前" required>
+    <input type="email" name="email" placeholder="メールアドレス" required>
+    <textarea name="message" rows="6" placeholder="お問い合わせ内容" required></textarea>
+    <button type="submit">送信</button>
+  </form>
+</div>
 
-    <div class="contentOverlay">
-      <h2>お問い合わせ<br><br>TEL ◯◯◯-◯◯◯◯◯-◯◯◯</h2>
-      <div id="footerAnchor" style="height: 0px;"></div>
-      <div id="contactSection" class="contact-card hidden">
-        <form id="contactForm" action="https://formspree.io/f/myzwoaje" method="POST">
-          <label>名前:<br /><input type="text" name="name" required /></label><br /><br/>
-          <label>メールアドレス:<br /><input type="email" name="email" required /></label><br /><br/>
-          <label>メッセージ:<br /><textarea name="message" rows="4" required></textarea></label><br /><br/>
-          <button type="submit">送信</button>
-        </form>
-      </div>
-    </div>
+      </form>
+    </section>
   </div>
 
-  <button id="contactBtn">お問い合わせ</button>
+  <button id="floatingContactBtn">お問い合わせ</button>
 
   <audio id="clapSound" src="2.mp3"></audio>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const startBtn = document.getElementById("startBtn");
-      const clapperImg = document.getElementById("clapperImg");
-      const rec = document.getElementById("recMark");
-      const intro = document.getElementById("intro");
-      const content = document.getElementById("mainContent");
-      const overlayTitle = document.getElementById("overlayTitle");
-      const clapSound = document.getElementById("clapSound");
-      const contactBtn = document.getElementById("contactBtn");
-      const contactSection = document.getElementById("contactSection");
-
-      startBtn.addEventListener("click", () => {
-        clapperImg.src = "16775.png";
-        clapSound.play();
-        startBtn.style.display = "none";
-        rec.style.display = "block";
-
-        setTimeout(() => {
-          document.body.style.backgroundColor = "#FFE4C4";
-          document.body.style.color = "black";
-          overlayTitle.classList.remove("hidden");
-        }, 2000);
-
-        setTimeout(() => {
-          rec.style.display = "none";
-          intro.style.display = "none";
-          content.classList.remove("hidden");
-          content.style.opacity = 1;
-          contactBtn.style.display = "block";
-          contactSection.classList.remove("hidden");
-        }, 2000);
-      });
-
-      contactBtn.addEventListener("click", () => {
-        document.getElementById("footerAnchor").scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-          entry.target.classList.remove("fade-out");
-        } else {
-          entry.target.classList.remove("fade-in");
-          entry.target.classList.add("fade-out");
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    document.querySelectorAll(".contentOverlay").forEach(el => {
-      observer.observe(el);
-    });
-
-    // フォーム送信処理
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("contactForm");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch("https://formspree.io/f/myzwoaje", {
-            method: "POST",
-            headers: { "Accept": "application/json" },
-            body: formData
-          });
-
-          if (response.ok) {
-            alert("送信が完了しました。ありがとうございました！");
-            form.reset();
-          } else {
-            alert("送信に失敗しました。もう一度お試しください。");
-          }
-        } catch (error) {
-          alert("通信エラーが発生しました。");
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
